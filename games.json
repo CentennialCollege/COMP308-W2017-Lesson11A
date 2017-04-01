@@ -1,0 +1,24 @@
+{
+  "games": [
+    {
+      "name": "Fallout 4",
+      "rating": 4.6,
+      "cost": 59.99
+    },
+    {
+      "name": "Battlefield 1",
+      "cost": 79.99,
+      "rating": 4.7
+    },
+    {
+      "name": "Red Dead Redemption",
+      "cost": 39.99,
+      "rating": 4.5
+    },
+    {
+      "name": "Ghost Recon: Wildlands",
+      "cost": 89.99,
+      "rating": 4.1
+    }
+  ]
+}
