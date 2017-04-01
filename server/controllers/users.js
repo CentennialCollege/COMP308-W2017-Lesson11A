@@ -30,6 +30,7 @@ module.exports.DisplayLogin = (req, res) => {
 }
 
 // Processes the Login Request
+//module.exports.ProcessLogin = (req, res, next) => {
 module.exports.ProcessLogin = (req, res) => {
   firebaseAuth.signInWithEmailAndPassword(req.body.email, req.body.password)
   .then(()=> {
@@ -38,7 +39,7 @@ module.exports.ProcessLogin = (req, res) => {
   })
   .catch((err) =>{
     let errorCode = err.code;
-    let errorMessage = err.message;
+    //let errorMessage = err.message;
     if(errorCode == 'auth/wrong-password') {
       req.flash('loginMessage', 'Incorrect Password');
     }
@@ -73,7 +74,9 @@ module.exports.DisplayRegistration = (req, res) => {
 }
 
 // Process the registration page
-module.exports.ProcessRegistration = (req, res) => {
+
+//module.exports.ProcessRegistration = (req, res, next) => {
+module.exports.ProcessRegistration = (req, res) => {  
   firebaseAdmin.auth().createUser({
     email: req.body.email,
     emailVerified: true,
@@ -81,7 +84,8 @@ module.exports.ProcessRegistration = (req, res) => {
     displayName: req.body.displayName,
     disabled: false
   })
-  .then((userRecord) => {
+  //.then((userRecord) => {
+  .then(() => {
     // sign in the user after registration
     firebaseAuth.signInWithEmailAndPassword(req.body.email, req.body.password)
     .then(()=>{
