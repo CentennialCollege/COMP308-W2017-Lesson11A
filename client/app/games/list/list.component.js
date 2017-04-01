@@ -34,6 +34,7 @@ ListComponent = __decorate([
     core_1.Component({
         selector: 'list',
         templateUrl: 'app/games/list/list.template.html',
+        //template: `<h1> Games! </h1>`,
         providers: [games_service_1.GamesService]
     }),
     __metadata("design:paramtypes", [games_service_1.GamesService])

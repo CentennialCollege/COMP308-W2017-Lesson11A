@@ -7,6 +7,7 @@ import { Game } from '../game';
 @Component({
   selector: 'list',
   templateUrl: 'app/games/list/list.template.html',
+  //template: `<h1> Games! </h1>`,
   providers: [GamesService]
 })
 export class ListComponent {
