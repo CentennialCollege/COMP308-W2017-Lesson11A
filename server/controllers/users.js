@@ -30,7 +30,7 @@ module.exports.DisplayLogin = (req, res) => {
 }
 
 // Processes the Login Request
-module.exports.ProcessLogin = (req, res, next) => {
+module.exports.ProcessLogin = (req, res) => {
   firebaseAuth.signInWithEmailAndPassword(req.body.email, req.body.password)
   .then(()=> {
     console.log("sign in after login: " + firebaseAuth.currentUser.displayName);
