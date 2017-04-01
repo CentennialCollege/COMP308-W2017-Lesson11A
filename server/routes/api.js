@@ -31,13 +31,13 @@ router.get('/games/add', usersController.RequireAuth, (req, res, next) => {
 // GET the Game Details page in order to edit a new Game
 router.get('/games/:id', usersController.RequireAuth, (req, res, next) => {
   apiController.GetGameById(req, res);
-}).post('/games/:id', usersController.RequireAuth, (req, res, next) => {
+}).post('/games/:id', usersController.RequireAuth, (req, res) => {
   // POST - process the information passed from the details form and update the document
   apiController.UpdateGame(req, res);
 });
 
 // GET - process the delete by user id
-router.get('/games/delete/:id', usersController.RequireAuth, (req, res, next) => {
+router.get('/games/delete/:id', usersController.RequireAuth, (req, res) => {
   apiController.DeleteGame(req, res);
 });
 
