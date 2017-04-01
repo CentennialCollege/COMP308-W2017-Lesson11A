@@ -6,7 +6,7 @@ let game = require('../models/games');
 // required for firebase
 let firebase = require('../config/firebase');
 // let firebaseDB = firebase.games;
-let firebaseAdmin = firebase.admin;
+// let firebaseAdmin = firebase.admin;
 let firebaseAuth = firebase.auth;
 
 // Read and display the Game List
