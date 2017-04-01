@@ -113,13 +113,14 @@ module.exports.DeleteGame = (req, res) => {
     // get a reference to the id from the url
     let id = req.params.id;
 
-    game.remove({_id: id}, (err) => {
-      if(err) {
-        console.log(err);
-        res.end(err);
-      } else {
-        // refresh the games list
+    firebaseDB.child(id).remove((err) =>{
+    if(err) {
+      console.log(err);
+      res.end(err);
+    }
+    else {
+      // refresh the games list
         res.redirect('/games');
-      }
-    });
+    }
+  });
 }
