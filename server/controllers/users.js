@@ -31,7 +31,7 @@ module.exports.DisplayLogin = (req, res) => {
 
 // Processes the Login Request
 //module.exports.ProcessLogin = (req, res, next) => {
-module.exports.ProcessLogin = (req, res) => {  
+module.exports.ProcessLogin = (req, res) => {
   firebaseAuth.signInWithEmailAndPassword(req.body.email, req.body.password)
   .then(()=> {
     console.log("sign in after login: " + firebaseAuth.currentUser.displayName);
@@ -74,6 +74,7 @@ module.exports.DisplayRegistration = (req, res) => {
 }
 
 // Process the registration page
+
 //module.exports.ProcessRegistration = (req, res, next) => {
 module.exports.ProcessRegistration = (req, res) => {  
   firebaseAdmin.auth().createUser({
