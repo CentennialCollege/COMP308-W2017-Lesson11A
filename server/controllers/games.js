@@ -5,8 +5,8 @@ let game = require('../models/games');
 
 // required for firebase
 let firebase = require('../config/firebase');
-let firebaseDB = firebase.games;
-let firebaseAdmin = firebase.admin;
+//let firebaseDB = firebase.games;
+//let firebaseAdmin = firebase.admin;
 let firebaseAuth = firebase.auth;
 
 // Read and display the Game List
@@ -43,7 +43,8 @@ module.exports.CreateGame = (req, res) => {
       "rating": req.body.rating
     });
 
-    game.create(newGame, (err, game) => {
+    //game.create(newGame, (err, game) => {
+    game.create(newGame, (err) => {
       if(err) {
         console.log(err);
         res.end(err);
