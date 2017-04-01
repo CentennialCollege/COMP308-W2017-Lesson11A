@@ -38,7 +38,7 @@ module.exports.ProcessLogin = (req, res, next) => {
   })
   .catch((err) =>{
     let errorCode = err.code;
-    let errorMessage = err.message;
+    //let errorMessage = err.message;
     if(errorCode == 'auth/wrong-password') {
       req.flash('loginMessage', 'Incorrect Password');
     }
