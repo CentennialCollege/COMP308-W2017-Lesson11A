@@ -3,7 +3,7 @@ let express = require('express');
 let router = express.Router();
 
 // define the game model
-let game = require('../models/games');
+//let game = require('../models/games');
 
 // require the users controller for authentication
 let usersController = require('../controllers/users');
