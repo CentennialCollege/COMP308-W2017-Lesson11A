@@ -88,24 +88,24 @@ module.exports.DisplayEdit = (req, res) => {
 // Update an existing Game in the games collection
 module.exports.UpdateGame = (req, res) => {
   // get a reference to the id from the url
-    let id = req.params.id;
+  let id = req.params.id;
 
-     let updatedGame = game({
-       "_id": id,
-      "name": req.body.name,
-      "cost": req.body.cost,
-      "rating": req.body.rating
-    });
+  let updatedGame = {
+    "name": req.body.name,
+    "cost": req.body.cost,
+    "rating": req.body.rating
+  };
 
-    game.update({_id: id}, updatedGame, (err) => {
-      if(err) {
-        console.log(err);
-        res.end(err);
-      } else {
-        // refresh the game List
+  firebaseDB.child(id).update(updatedGame, (err) =>{
+    if(err) {
+      console.log(err);
+      res.end(err);
+    }
+    else {
+      // refresh the game List
         res.redirect('/games');
-      }
-    });
+    }
+  });
 }
 
 // Deletes a game from the games collection
