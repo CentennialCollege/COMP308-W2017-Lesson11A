@@ -9,7 +9,7 @@ let User = UserModel.User; // alias for User Model - User object
 
 // required for firebase
 let firebase = require('../config/firebase');
-let firebaseDB = firebase.games;
+//let firebaseDB = firebase.games;
 let firebaseAdmin = firebase.admin;
 let firebaseAuth = firebase.auth;
 
