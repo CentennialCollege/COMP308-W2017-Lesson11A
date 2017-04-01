@@ -91,7 +91,8 @@ passport.deserializeUser(User.deserializeUser());
   });
 
   // Handle 500 Errors
-  app.use(function(error, req, res, next) {
+  //  app.use(function(error, req, res, next) {
+  app.use(function(error, req, res) {
       res.status(500);
       res.render('errors/500', {
         title:'500: Internal Server Error',
