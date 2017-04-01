@@ -95,7 +95,6 @@ module.exports.ProcessRegistration = (req, res, next) => {
   })
   .catch((err) => {
     let errorCode = err.code;
-    let errorMessage = err.message;
     if(errorCode == 'auth/weak-password') {
       req.flash('registerMessage', 'The password is too weak');
     }
