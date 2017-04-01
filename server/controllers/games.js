@@ -34,6 +34,32 @@ module.exports.DisplayAdd = (req, res) => {
 
 // Create a new game and insert it into the db
 module.exports.CreateGame = (req, res) => {
+
+let newchild = null;
+
+    firebaseDB.once("value", (snapshot) => {
+      // read number of children of the games List
+      newchild = snapshot.numChildren();
+
+      // set the value of the new children
+      firebaseDB.child(newchild).set({
+        "name": req.body.name,
+        "cost": req.body.cost,
+        "rating": req.body.rating
+      },
+      (err) => {
+        if(err) {
+          console.log(err);
+          res.end(err);
+        }
+        else {
+          res.redirect('/games');
+        }
+      });
+    });
+
+
+  /*
   let newGame = game({
       "name": req.body.name,
       "cost": req.body.cost,
@@ -48,7 +74,7 @@ module.exports.CreateGame = (req, res) => {
       } else {
         res.redirect('/games');
       }
-    });
+    });*/
 }
 
 // Displays the Details page to Update a Game
