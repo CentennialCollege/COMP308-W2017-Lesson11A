@@ -37,28 +37,28 @@ module.exports.CreateGame = (req, res) => {
           console.log(err);
           res.end(err);
         }
+        else {
+          res.end(200);
+        }
       });
     });
 }
 
 module.exports.GetGameById = (req, res) => {
   try {
-      // get a reference to the id from the url
-      let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
 
-        // find one game by its id
-      game.findById(id, (err, games) => {
-        if(err) {
-          console.log(err);
-          res.end(error);
-        } else {
-          res.status(200).json({
-              title: 'Game Details',
-              games: games,
-              displayName: firebaseAuth.currentUser ? firebaseAuth.currentUser.displayName : ''
-          });
-        }
-      });
+    // get a reference to the id from the url
+    let id = req.params.id;
+
+    firebaseDB.child(id).once("value", (snapshot)=> {
+       res.status(200).json(snapshot.val());
+    },
+    (err) => {
+      if(err) {
+        console.log(err);
+      }
+    }
+    );
     } catch (err) {
       console.log(err);
       res.status(400).redirect('/errors/404');

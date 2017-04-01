@@ -57,45 +57,26 @@ let newchild = null;
         }
       });
     });
-
-
-  /*
-  let newGame = game({
-      "name": req.body.name,
-      "cost": req.body.cost,
-      "rating": req.body.rating
-    });
-
-    //game.create(newGame, (err, game) => {
-    game.create(newGame, (err) => {
-      if(err) {
-        console.log(err);
-        res.end(err);
-      } else {
-        res.redirect('/games');
-      }
-    });*/
 }
 
 // Displays the Details page to Update a Game
 // find the game by id and populate the form
 module.exports.DisplayEdit = (req, res) => {
-  try {
-      // get a reference to the id from the url
-      let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
 
-        // find one game by its id
-      game.findById(id, (err, games) => {
-        if(err) {
-          console.log(err);
-          res.end(error);
-        } else {
-          // show the game details view
-          res.render('games/details', {
+  try {
+    // get a reference to the id from the url
+    let id = req.params.id;
+
+    firebaseDB.child(id).once("value", (snapshot) => {
+     res.render('games/details', {
               title: 'Game Details',
-              games: games,
+              games: snapshot.val(),
               displayName: firebaseAuth.currentUser ? firebaseAuth.currentUser.displayName : ''
           });
+    },
+      (err) => {
+        if (err) {
+          console.log(err);
         }
       });
     } catch (err) {
