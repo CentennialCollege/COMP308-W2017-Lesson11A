@@ -1,7 +1,9 @@
+/*
 let mongoose = require('mongoose');
 
 // define the game model
 let game = require('../models/games');
+*/
 
 // required for firebase
 let firebase = require('../config/firebase');
@@ -98,8 +100,7 @@ module.exports.DeleteGame = (req, res) => {
       res.end(err);
     }
     else {
-      res.end(200);
+      res.redirect('/api/games/');
     }
   });
-
 }

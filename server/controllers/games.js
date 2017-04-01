@@ -1,7 +1,10 @@
+/*
 let mongoose = require('mongoose');
 
 // define the game model
 let game = require('../models/games');
+
+*/
 
 // required for firebase
 let firebase = require('../config/firebase');

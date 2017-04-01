@@ -18,17 +18,19 @@ let LocalStrategy = passportlocal.Strategy;
 let flash = require('connect-flash'); // displays errors / login messages
 
 // import "mongoose" - required for DB Access
-let mongoose = require('mongoose');
+//let mongoose = require('mongoose');
 // URI
-let config = require('./config/db');
+//let config = require('./config/db');
 
-mongoose.connect(process.env.URI || config.URI);
+//mongoose.connect(process.env.URI || config.URI);
 
+/*
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
   console.log("Conneced to MongoDB...");
 });
+*/
 
 // define routers
 let index = require('./routes/index'); // top level routes
