@@ -73,7 +73,7 @@ module.exports.DisplayRegistration = (req, res) => {
 }
 
 // Process the registration page
-module.exports.ProcessRegistration = (req, res, next) => {
+module.exports.ProcessRegistration = (req, res) => {
   firebaseAdmin.auth().createUser({
     email: req.body.email,
     emailVerified: true,
